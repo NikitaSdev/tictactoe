@@ -1,0 +1,36 @@
+.game{
+    width:600px;
+    height:720px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: white;
+}
+.square{
+    width:200px;
+    height:200px;
+    outline:2px solid black;
+    font-size:72px;
+    font-weight: bold;
+}
+.board{
+    display:flex;
+    flex-wrap: wrap;
+    width:600px;
+    height:600px;
+}
+.start{
+   height:80px;
+    font-size:48px;
+}
+.info{
+    height:50px;
+    text-align: center;
+    font-size:36px;
+}
+.draw{
+    width:700px;
+    height:700px;
+    background-color: white;
+    position:absolute;
+    font-size:100px;
+}
