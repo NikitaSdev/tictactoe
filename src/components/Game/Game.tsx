@@ -3,13 +3,11 @@ import Board from "../Board/Board";
 import {calculateWinner} from '../../Winner'
 import s from "../../App.module.scss"
 const Game = () => {
-    const [counter,setCounter] = useState(0)
     const [board,setBoard] = useState(Array(9).fill(null))
     const [xIsNext, setXIsNext] = useState(true)
     const winner = calculateWinner(board)
 
     const handleClick = (index:any) => {
-        setCounter(counter+1)
         const boardCopy = [...board]
         if(winner || boardCopy[index]){
             return null
@@ -17,12 +15,8 @@ const Game = () => {
         boardCopy[index] = xIsNext ? 'X' : 'O'
         setBoard((boardCopy))
         setXIsNext(!xIsNext)
-        if(counter === 9){
-            setCounter(0)
-        }
     }
     const startNewGame = () =>{
-        setCounter(0)
         return(
             <button className={s.start} onClick={() =>setBoard(Array(9).fill(null))}>Заново</button>
         )
@@ -34,7 +28,7 @@ const Game = () => {
             <Board squares={board} click={handleClick}/>
             <p className={s.info}>
                 {
-                    counter === 9 ? 'Ничья' : winner ? 'Выйграли ' + winner : 'Сейчас ходят' + (xIsNext ? 'X' : "O")
+                    winner ? 'Выйграли ' + winner : ('Сейчас ходят' + (xIsNext ? 'X' : "O"))
                 }
             </p>
         </div>

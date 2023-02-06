@@ -1,4 +1,4 @@
-export function calculateWinner (squares:Array<number[]>):Array<number> | null {
+export function calculateWinner (squares:Array<number[]>):Array<number> | null | boolean {
     const winCombos = [
         [0,1,2],
         [3,4,5],
