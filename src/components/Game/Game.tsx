@@ -17,8 +17,12 @@ const Game = () => {
         boardCopy[index] = xIsNext ? 'X' : 'O'
         setBoard((boardCopy))
         setXIsNext(!xIsNext)
+        if(counter === 9){
+            setCounter(0)
+        }
     }
     const startNewGame = () =>{
+        setCounter(0)
         return(
             <button className={s.start} onClick={() =>setBoard(Array(9).fill(null))}>Заново</button>
         )
